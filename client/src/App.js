@@ -2,6 +2,15 @@ import { motion } from 'framer-motion';
 import ProfileCard from './components/ProfileCard';
 
 const App = () => {
+  const user = {
+    name: "Ambreen",
+    bio: "A passionate developer with a love for creating intuitive user experiences.",
+    avatar: "/images/avatar.jpg",
+    links: [
+        { platform: "GitHub", url: "https://github.com/AmbreenAmbi04" },
+        { platform: "Vercel", url: "https://vercel.com/ambreens-projects-e8785e61" }
+    ]
+  }
 return (
   <motion.div
     initial={{ opacity: 0 }}
@@ -18,14 +27,10 @@ return (
       My Space
     </motion.h1>
     <ProfileCard
-    name= "Ambreen"
-    bio= "A passionate developer with a love for creating intuitive user experiences."
-    avatar= "../public/images/avatar.jpg"
-    links= {[
-      {platform: "GitHub", url: "https://github.com/AmbreenAmbi04"},
-      {platform: "Vercel", url: "https://vercel.com/ambreens-projects-e8785e61"}
-    ]}
-    />
+    name= { user.name }
+    bio= { user.bio }
+    avatar= { user.avatar }
+    links= {user.links} />
   </motion.div>
 )
 }
