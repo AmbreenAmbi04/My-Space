@@ -32,19 +32,46 @@ if (!weather || parseInt(weather.cod) !== 200) {
 
 return (
     <motion.div
-      className="card container col-md-8 mt-3 p-3 mb-3 cold-md-8"
+      className="card container col-md-8 mt-3 py-3 mb-3 cold-md-8 px-3 shadow-lg text-center"
       initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.1, color: "#66524bff" }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.03, color: "#66524bff" }}
     >
-        <motion.h2 className= "">Weather Widget</motion.h2>
-        <motion.h3>{ weather.name }</motion.h3>
-        <motion.h3>{ Math.round(weather.main.temp) }°C</motion.h3>
-        <motion.h3>{ weather.weather[0].description }</motion.h3>
+        <motion.h2
+            className= "fw-bold"
+            style= {{ color: "#66524bff" }}
+            whileHover={{ scale: 1.1, color: "#a06148" }}
+            transition={{ type: "spring", stiffness: 200 }}
+            ><motion.span><i className="bi bi-cloud-sun me-2" style= {{ color: "#66524bff" }}></i></motion.span>Weather Widget
+        </motion.h2>
+        <motion.h3 
+            class= "fw-semibold" 
+            style= {{ color: "#904f35ff" }}
+            whileHover={{ scale: 1.1, color: "#a06148" }}
+            transition={{ type: "spring", stiffness: 200 }}
+            >City: { weather.name }
+        </motion.h3>
+        <motion.h3 
+            class= "fw-semibold" 
+            style= {{ color: "#904f35ff" }}
+            whileHover={{ scale: 1.1, color: "#a06148" }}
+            transition={{ type: "spring", stiffness: 200 }}
+            >Temperature: { Math.round(weather.main.temp) }°C
+        </motion.h3>
+        <motion.h3 
+            class= "fw-semibold" 
+            style= {{ color: "#904f35ff" }}
+            whileHover={{ scale: 1.1, color: "#a06148" }}
+            transition={{ type: "spring", stiffness: 200 }}
+            >Weather Condition: {weather.weather[0].description.charAt(0).toUpperCase() + weather.weather[0].description.slice(1)}
+        </motion.h3>
         <motion.img
         src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         alt="weather icon"
+        width= "100px"
+        height= "100px"
+        className= "d-flex mx-auto"
       />
     </motion.div>
 )
