@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { motion } from 'framer-motion';
+import ProfileCard from './components/ProfileCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+return (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+   >
+    <motion.h1
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className= "app-header mt-3 ms-3 fw-bold fs-2 text-danger fs-1"
+    >
+      My Space
+    </motion.h1>
+    <ProfileCard
+    name= "Ambreen"
+    bio= "A passionate developer with a love for creating intuitive user experiences."
+    avatar= "../public/images/avatar.jpg"
+    links= {[
+      {platform: "GitHub", url: "https://github.com/AmbreenAmbi04"},
+      {platform: "Vercel", url: "https://vercel.com/ambreens-projects-e8785e61"}
+    ]}
+    />
+  </motion.div>
+)
 }
 
 export default App;
