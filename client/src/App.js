@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import ProfileCard from './components/ProfileCard';
+import WeatherWidget from './components/WeatherWidget';
 
 const App = () => {
   const user = {
@@ -31,6 +32,7 @@ return (
     bio= { user.bio }
     avatar= { user.avatar }
     links= {user.links} />
+    <WeatherWidget />
   </motion.div>
 )
 }
