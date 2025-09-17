@@ -14,6 +14,7 @@ const QuoteGenerator =() => {
             headers: { 'X-Api-Key': API_KEY }
         });
         const data = await response.json();
+        setQuote(data[0]);
         console.log(data);
         setQuote(data[Math.floor(Math.random() * data.length)]);
     } catch (error) {
@@ -24,7 +25,7 @@ const QuoteGenerator =() => {
 
     useEffect(() => {
         fetchQuote();
-    });
+    }, []);
 
     return (
         <motion.div
@@ -33,13 +34,13 @@ const QuoteGenerator =() => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.03 }}>
-            <motion.h3
-                className= "fw-bold fs-2"
-                whileHover={{ scale: 1.1, color: "#66524bff" }}
-                transition={{ type: "spring", stiffness: 200 }}
-                style= {{ color: "#66524bff" }}
-            >Quote of the Day</motion.h3>
-            {loading ? (
+        <motion.h3
+            className= "fw-bold fs-2"
+            whileHover={{ scale: 1.1, color: "#66524bff" }}
+            transition={{ type: "spring", stiffness: 200 }}
+            style= {{ color: "#66524bff" }}
+        >Quote of the Day</motion.h3>
+        {loading ? (
             <motion.div className= "mt-3 py-3 px-3"><motion.h4 className= "text-danger fw-semibold">Loading the quotes...</motion.h4></motion.div>
             ) : (quote && (
                 <motion.div className= "px-5 py-3">
