@@ -24,7 +24,7 @@ const QuoteGenerator =() => {
 
     useEffect(() => {
         fetchQuote();
-    }, []);
+    });
 
     return (
         <motion.div
