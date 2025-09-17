@@ -5,12 +5,17 @@ const QuoteGenerator =() => {
     const [ quote, setQuote] = useState("");
     const [ loading, setLoading ] = useState(false);
 
+    const API_KEY = process.env.REACT_APP_QUOTES_API_KEY;
+
     const fetchQuote = async() => {
         setLoading(true);
     try {
-        const response = await fetch("https://zenquotes.io/api/random");
+        const response = await fetch("https://api.api-ninjas.com/v1/quotes", {
+            headers: { 'X-Api-Key': API_KEY }
+        });
         const data = await response.json();
-        setQuote(data[0]);
+        console.log(data);
+        setQuote(data[Math.floor(Math.random() * data.length)]);
     } catch (error) {
         console.error("Error fetching quote:", error);
     }
@@ -33,8 +38,8 @@ const QuoteGenerator =() => {
             <motion.div className= "mt-3 py-3 px-3"><motion.h4 className= "text-danger fw-semibold">Loading the quotes...</motion.h4></motion.div>
             ) : (quote && (
                 <motion.div>
-                <motion.h4>{ quote.q }</motion.h4>
-                <motion.h4>{ quote.a }</motion.h4>
+                <motion.h4>"{ quote.quote }"</motion.h4>
+                <motion.h4>{ quote.author }</motion.h4>
                 </motion.div>
             ))}
             <motion.button

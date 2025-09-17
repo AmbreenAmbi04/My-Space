@@ -46,21 +46,21 @@ return (
             ><motion.span><i className="bi bi-cloud-sun me-2" style= {{ color: "#66524bff" }}></i></motion.span>Weather Widget
         </motion.h2>
         <motion.h3 
-            class= "fw-semibold" 
+            className= "fw-semibold" 
             style= {{ color: "#904f35ff" }}
             whileHover={{ scale: 1.1, color: "#a06148" }}
             transition={{ type: "spring", stiffness: 200 }}
             >City: { weather.name }
         </motion.h3>
         <motion.h3 
-            class= "fw-semibold" 
+            className= "fw-semibold" 
             style= {{ color: "#904f35ff" }}
             whileHover={{ scale: 1.1, color: "#a06148" }}
             transition={{ type: "spring", stiffness: 200 }}
             >Temperature: { Math.round(weather.main.temp) }°C
         </motion.h3>
         <motion.h3 
-            class= "fw-semibold" 
+            className= "fw-semibold" 
             style= {{ color: "#904f35ff" }}
             whileHover={{ scale: 1.1, color: "#a06148" }}
             transition={{ type: "spring", stiffness: 200 }}
