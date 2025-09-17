@@ -24,9 +24,11 @@ return (
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className= "app-header mt-3 ms-3 fw-bold fs-2 text-danger fs-1"
+      style= {{ color: "#755f58" }}
+      className= "card-header mt-4 fw-bold fs-1 text-center"
+      whileHover={{ scale: 1.1, color: "#66524bff" }}
     >
-      My Space
+      Personal Dashboard - My Space
     </motion.h1>
     <ProfileCard
     name= { user.name }

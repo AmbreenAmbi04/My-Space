@@ -33,17 +33,36 @@ const QuoteGenerator =() => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.03 }}>
-            <motion.h3>Quote of the Day</motion.h3>
+            <motion.h3
+                className= "fw-bold fs-2"
+                whileHover={{ scale: 1.1, color: "#66524bff" }}
+                transition={{ type: "spring", stiffness: 200 }}
+                style= {{ color: "#66524bff" }}
+            >Quote of the Day</motion.h3>
             {loading ? (
             <motion.div className= "mt-3 py-3 px-3"><motion.h4 className= "text-danger fw-semibold">Loading the quotes...</motion.h4></motion.div>
             ) : (quote && (
-                <motion.div>
-                <motion.h4>"{ quote.quote }"</motion.h4>
-                <motion.h4>{ quote.author }</motion.h4>
+                <motion.div className= "px-5 py-3">
+                <motion.h4
+                    className="card-text fs-4 fw-semibold"
+                    style= {{ color: "#a06148" }}
+                    whileHover={{ scale: 1.1, color: "#904f35ff" }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                >"{ quote.quote }"</motion.h4>
+                <motion.h4
+                    className="mx-2 fs-4 fw-semibold no-underline"
+                    style= {{ color: "#bb7f63ff" }}
+                    whileHover={{ scale: 1.1, color: "#9b6952ff" }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                >-{ quote.author }</motion.h4>
                 </motion.div>
             ))}
             <motion.button
-                className= "btn btn-md mt-2 fs-4 fw-semibold btn-danger"
+                className="btn btn-md mt-3 fs-3 fw-semibold"
+                style= {{ backgroundColor: "#808080" }}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.1, color: "#5a5757ff" }}
+                transition={{ type: "spring", stiffness: 200 }}
                 value= {quote}
                 onClick= { fetchQuote }
             >Generate Quote</motion.button>

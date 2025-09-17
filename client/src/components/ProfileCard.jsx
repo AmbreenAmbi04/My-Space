@@ -11,7 +11,7 @@ const ProfileCard = ({ name, bio, avatar, links }) => {
 
   return (
     <motion.div
-      className="card container col-md-8 mt-5 p-4 shadow-lg text-center"
+      className="card container col-md-8 mt-4 p-4 shadow-lg text-center"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
