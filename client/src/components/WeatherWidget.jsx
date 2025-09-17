@@ -36,7 +36,7 @@ return (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.03, color: "#66524bff" }}
+      whileHover={{ scale: 1.03 }}
     >
         <motion.h2
             className= "fw-bold"
